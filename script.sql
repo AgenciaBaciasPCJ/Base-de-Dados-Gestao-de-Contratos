@@ -5,5 +5,7 @@ objetoContrato varchar(250),
 numeroContrato int,
 valorPCJContrato decimal(30,5),
 valorPCJContrapartida decimal(30,5),
-nrProcessoContrato int
+nrProcessoContrato int,
+dataInicioContrato Date,
+dataInicioContrato Date,
 
