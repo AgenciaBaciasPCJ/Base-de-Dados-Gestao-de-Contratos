@@ -7,5 +7,7 @@ valorPCJContrato decimal(30,5),
 valorPCJContrapartida decimal(30,5),
 nrProcessoContrato int,
 dataInicioContrato Date,
-dataInicioContrato Date,
+dataFimContrato Date,
+
+
 
