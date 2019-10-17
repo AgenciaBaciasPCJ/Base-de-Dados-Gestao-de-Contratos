@@ -29,8 +29,18 @@ create table tbAcaoPAP(
 
 create table tbTipoDemand(
     idTipoDemand int not null primary key identity(1,1),
-    DescricaoTipoDemand varchar(30),
+    descricaoTipoDemand varchar(30),
 )
+create table tbPermissVisulzc(
+    idPermissVisulzc int not null primary key identity(1,1),
+    dataPermissVisulzc Date,
+    validadePermissVisulzc Date,
+    idArea int foreign key references tbArea(idArea),
+    idContratos int foreign key references tbContratos(idContratos),
+    idPessRespnsvl int foreign key references tbPessRespnsvl(idPessRespnsvl),
+)
+
+
 
 
 
