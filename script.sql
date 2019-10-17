@@ -40,6 +40,18 @@ create table tbPermissVisulzc(
     idPessRespnsvl int foreign key references tbPessRespnsvl(idPessRespnsvl),
 )
 
+create table tbHistorico(
+    idHistorico int not null primary key identity(1,1),
+    DataIncls date not null,
+    Texto varchar(max) not null,
+    Tipo varchar(30),
+    idAditivo int foreign key references tbAditivo(idAditivo),
+    idContratos int foreign key references tbContratos(idContratos),
+    idPessRespnsvl int foreign key references tbPessRespnsvl(idPessRespnsvl)
+)
+
+
+
 
 
 
