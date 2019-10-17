@@ -20,17 +20,15 @@ idTipoDemand int foreign key references tbTipoDemand(idTipoDemand),
 idFontRecurs int foreign key references tbFontRecurs(idFontRecurs),
 idAcaoPAP int foreign key references tbAcaoPAP(idAcaoPAP)
 );
-
 create table tbAcaoPAP(
     idAcaoPAP int not null primary key identity(1,1),
     papAcaoPAP varchar(30),
     acaoSubAcaoPAP varchar(30)
-)
-
+);
 create table tbTipoDemand(
     idTipoDemand int not null primary key identity(1,1),
     descricaoTipoDemand varchar(30),
-)
+);
 create table tbPermissVisulzc(
     idPermissVisulzc int not null primary key identity(1,1),
     dataPermissVisulzc Date,
@@ -38,17 +36,27 @@ create table tbPermissVisulzc(
     idArea int foreign key references tbArea(idArea),
     idContratos int foreign key references tbContratos(idContratos),
     idPessRespnsvl int foreign key references tbPessRespnsvl(idPessRespnsvl),
-)
-
-create table tbHistorico(
-    idHistorico int not null primary key identity(1,1),
-    DataIncls date not null,
-    Texto varchar(max) not null,
-    Tipo varchar(30),
+);
+create table tbHistrc(
+    idHistrc int not null primary key identity(1,1),
+    dataInclsHistrc date not null,
+    textoHistrc varchar(max) not null,
+    tipoHistrc varchar(30),
     idAditivo int foreign key references tbAditivo(idAditivo),
     idContratos int foreign key references tbContratos(idContratos),
     idPessRespnsvl int foreign key references tbPessRespnsvl(idPessRespnsvl)
-)
+);
+create table tbArqvs(
+    idArqvs int not null primary key identity(1,1),
+    descricaoArqvs  date not null,
+    linkArqvs  varchar(max) not null,
+    tipoArqvs  varchar(30),
+    idAditivo int foreign key references tbAditivo(idAditivo),
+    idContratos int foreign key references tbContratos(idContratos),
+    idPessRespnsvl int foreign key references tbPessRespnsvl(idPessRespnsvl)
+    idParcel int foreign key references tbParcel(idParcel)
+    idHistrc int foreign key references tbHistrc(idHistrc)
+);
 
 
 
