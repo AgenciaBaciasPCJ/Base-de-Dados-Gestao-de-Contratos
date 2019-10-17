@@ -27,6 +27,11 @@ create table tbAcaoPAP(
     acaoSubAcaoPAP varchar(30)
 )
 
+create table tbTipoDemand(
+    idTipoDemand int not null primary key identity(1,1),
+    DescricaoTipoDemand varchar(30),
+)
+
 
 
 
