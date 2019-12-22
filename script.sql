@@ -140,6 +140,17 @@ CREATE TABLE tbAditivo (
     tbFonteRecurso_idtbFonteRecurso INT NOT NULL references  tbFonteRecurso(idFontRecurs)
   );
 
+CREATE TABLE tbProdutos (
+    idtbProdutos int not null primary key identity(1,1),
+    descricaotbProdutos VARCHAR(45) NULL,
+    linktbProdutos VARCHAR(45) NULL,
+    tipotbProdutos VARCHAR(45) NULL,
+    tbContrato_idtbContrato INT NOT NULL references tbContrato(idContrato),
+    tbAditivo_idtbAditivo INT NOT NULL references tbAditivo(idAditivo),
+    tbArqv_idtbArqv INT NOT NULL references tbArqv(idAditivo),
+    tbHistrc_idHistrc INT NOT NULL references tbHistrc(idHistrc),
+    tbParcela_idtbParcela     INT NOT NULL references tbParcela(idParcela)
+);
 
 CREATE TABLE tbArqv (
     idtbArquivo int not null primary key identity(1,1),
