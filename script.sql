@@ -3,20 +3,20 @@
 -- o texto "foreign key references tabela(campo)" serve para identificar que o campo em questão é uma chave de outra tabela, ou seja, são campos relacionados.
 --    Podemos traduzir "campox  foreign key references tabelay(campoX)" para : o campox é uma chave estrangeira e se referencia ao campo campoX da tabela tabelaY
 create table tbAcaoPAP(
-    idAcaoPAP int not null primary key identity(1,1),
+    idAcaoPAP int not null SERIAL PRIMARY KEY,
     papAcaoPAP varchar(30),
     acaoSubAcaoPAP varchar(30)
 );
 create table tbTipoDemand(
-    idTipoDemand int not null primary key identity(1,1),
+    idTipoDemand int not null SERIAL PRIMARY KEY,
     descricaoTipoDemand varchar(30),
 );
 CREATE TABLE tbArea (
-    idtbArea int not null primary key identity(1,1),
+    idtbArea int not null SERIAL PRIMARY KEY,
     nometbArea VARCHAR(45) NULL
  );
 CREATE TABLE tbEndereco (
-    idtbEndereco int not null primary key identity(1,1),
+    idtbEndereco int not null SERIAL PRIMARY KEY,
     enderecotbEndereco VARCHAR(45) NULL,
     cidadetbEndereco VARCHAR(45) NULL,
     ceptbEndereco VARCHAR(45) NULL,
@@ -24,44 +24,44 @@ CREATE TABLE tbEndereco (
  );
 
 CREATE TABLE tbFonteRecurso (
-    idtbFonteRecurso int not null primary key identity(1,1),
+    idtbFonteRecurso int not null SERIAL PRIMARY KEY,
     descricaotbFonteRecurso VARCHAR(45) NULL
  );
 CREATE TABLE tbCargo (
-    idtbCargo int not null primary key identity(1,1),
+    idtbCargo int not null SERIAL PRIMARY KEY,
     descricaotbCargo VARCHAR(45) NULL,
     isOficialtbCargo TINYINT NULL,
   );
   CREATE TABLE tbPerfil (
-    idtbPerfil int not null primary key identity(1,1),
+    idtbPerfil int not null SERIAL PRIMARY KEY,
     descricaotbPerfil VARCHAR(45) NULL
  );
  CREATE TABLE tbSituacao (
-    idtbSituacao int not null primary key identity(1,1),
+    idtbSituacao int not null SERIAL PRIMARY KEY,
     descricaotbSituacao VARCHAR(45) NULL
  );
  CREATE TABLE tbContato (
-    idtbContato int not null primary key identity(1,1),
+    idtbContato int not null SERIAL PRIMARY KEY,
     SetortbContato VARCHAR(45) NULL,
     EmailtbContato VARCHAR(45) NULL,
     DescricaotbContato VARCHAR(45) NULL
  );
 
  CREATE TABLE tbEmpresa (
-    idtbEmpresa int not null primary key identity(1,1),
+    idtbEmpresa int not null SERIAL PRIMARY KEY,
     razaotbEmpresa VARCHAR(45) NULL,
     nomeFantasiatbEmpresa VARCHAR(45) NULL
  );
 CREATE TABLE tbGrupoPermss (
-    idtbGrupoPermss int not null primary key identity(1,1),
+    idtbGrupoPermss int not null SERIAL PRIMARY KEY,
     descricaotbGrupoPermss VARCHAR(45) NULL
  );
 CREATE TABLE tbCampo (
-    idtbCampo int not null primary key identity(1,1),
+    idtbCampo int not null SERIAL PRIMARY KEY,
     descricaotbCampo VARCHAR(45) NULL
  );
 create table tbContrato(
-    idContrato int not null primary key identity(1,1),
+    idContrato int not null SERIAL PRIMARY KEY,
     tituloContrato varchar(250),
     objetoContrato varchar(250),
     numeroContrato int,
@@ -80,7 +80,7 @@ create table tbContrato(
 );
 
 create table tbPermissVisulzc(
-    idPermissVisulzc int not null primary key identity(1,1),
+    idPermissVisulzc int not null SERIAL PRIMARY KEY,
     dataPermissVisulzc Date,
     validadePermissVisulzc Date,
     idtbArea int foreign key references tbArea(idtbArea),
@@ -88,7 +88,7 @@ create table tbPermissVisulzc(
     idPessRespnsvl int foreign key references tbPessRespnsvl(idPessRespnsvl),
 );
 create table tbHistrc(
-    idHistrc int not null primary key identity(1,1),
+    idHistrc int not null SERIAL PRIMARY KEY,
     dataInclsHistrc date not null,
     textoHistrc varchar(max) not null,
     tipoHistrc varchar(30),
@@ -97,7 +97,7 @@ create table tbHistrc(
     idPessRespnsvl int foreign key references tbPessRespnsvl(idPessRespnsvl)
 );
 create table tbArqv(
-    idArqvs int not null primary key identity(1,1),
+    idArqvs int not null SERIAL PRIMARY KEY,
     descricaoArqvs  date not null,
     linkArqvs  varchar(max) not null,
     tipoArqvs  varchar(30),
@@ -108,7 +108,7 @@ create table tbArqv(
     idHistrc int foreign key references tbHistrc(idHistrc)
 );
 create table tbParcela(
-    idtbParcela int not null primary key identity(1,1),
+    idtbParcela int not null SERIAL PRIMARY KEY,
     valortbParcela DECIMAL NULL,
     descricaotbParcela INT NULL,
     liberadatbParcela TINYINT NULL,
@@ -121,7 +121,7 @@ create table tbParcela(
 
 
 CREATE TABLE Auditoria (
-    idAuditoria int not null primary key identity(1,1),
+    idAuditoria int not null SERIAL PRIMARY KEY,
     horaAuditoria DATE NULL,
     usuarioAuditoria VARCHAR(45) NULL,
     tabelaAuditoria VARCHAR(45) NULL,
@@ -130,7 +130,7 @@ CREATE TABLE Auditoria (
     valorNovoAuditoria VARCHAR(45) NULL
  );
 CREATE TABLE tbAditivo (
-    idtbAditivo int not null primary key identity(1,1),
+    idtbAditivo int not null SERIAL PRIMARY KEY,
     valortbAditivo DECIMAL NULL,
     diasMesestbAditivo VARCHAR(45) NULL,
     prazotbAditivo INT NULL,
@@ -142,7 +142,7 @@ CREATE TABLE tbAditivo (
 
 
 CREATE TABLE tbArqv (
-    idtbArquivo int not null primary key identity(1,1),
+    idtbArquivo int not null SERIAL PRIMARY KEY,
     descricaotbArquivo VARCHAR(45) NULL,
     linktbArquivo VARCHAR(45) NULL,
     tipotbArquivo VARCHAR(45) NULL,
@@ -152,14 +152,14 @@ CREATE TABLE tbArqv (
     tbParcela_idtbParcela     INT NOT NULL references tbParcela(idParcela)
 );
 CREATE TABLE tbR_ContrtEmprs (
-    idtbR_ContrtEmprs int not null primary key identity(1,1),
+    idtbR_ContrtEmprs int not null SERIAL PRIMARY KEY,
     tbEndereco_idtbEndereco  INT NOT NULL references tbEndereco(idtbEndereco),
     tbEmpresa_idtbEmpresa  INT NOT NULL references tbEmpresa(idtbEmpresa)
 );
 
 
 CREATE TABLE tbAtributo (
-    idtbAtributo int not null primary key identity(1,1),
+    idtbAtributo int not null SERIAL PRIMARY KEY,
     valortbAtributo VARCHAR(45) NULL,
     datatbAtributo VARCHAR(45) NULL,
     tbSituacao_idtbSituacao INT NOT NULL,
@@ -168,14 +168,14 @@ CREATE TABLE tbAtributo (
     tbAditivo_idtbAditivo INT NOT NULL references tbAditivo(idAditivo)
 );
 CREATE TABLE tbPermss (
-    idtbPermss int not null primary key identity(1,1),
+    idtbPermss int not null SERIAL PRIMARY KEY,
     tbPessoa_idtbPessoa INT NOT NULL references  tbPessoa(idtbPessoa),
     tbPerfil_idtbPerfil INT NOT NULL references tbPerfil(idtbPerfil),
     tbGrupoPermss_idtbGrupoPermss INT NOT NULL references tbGrupoPermss(idtbGrupoPermss),
     tbContrato_idtbContrato INT NOT NULL references tbContrato(idContrato)
 );
  CREATE TABLE tbPessoa (
-    idtbPessoa int not null primary key identity(1,1),
+    idtbPessoa int not null SERIAL PRIMARY KEY,
     nometbPessoa VARCHAR(45) NULL,
     sobrenometbPessoa VARCHAR(45) NULL,
     documentotbPessoa VARCHAR(45) NULL,
